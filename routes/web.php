@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\TaskController;
 
 // AUTH
 Route::post('/register', [AuthController::class, 'register']);
@@ -14,4 +15,5 @@ Route::get('/projects/{id}', [ProjectController::class, 'show']);
 // PRIVADOS
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/projects', [ProjectController::class, 'store']);
+    Route::post('/tasks', [TaskController::class, 'store']);
 });
